@@ -1,6 +1,6 @@
 package edu.ntnu.idi.idatt;
 
-import static edu.ntnu.idi.idatt.validators.ArgumentValidator.CardConstructorValidator;
+import static edu.ntnu.idi.idatt.validators.ArgumentValidator.cardConstructorValidator;
 
 /**
  * <h3>Represents a playing card.
@@ -10,9 +10,7 @@ import static edu.ntnu.idi.idatt.validators.ArgumentValidator.CardConstructorVal
  *
  * @author William Holtsdalen
  */
-public class Card {
-  private final Suit suit;
-  private final Rank rank;
+public record Card(Suit suit, Rank rank) {
 
   /**
    * Creates a new card with the given suit and rank.
@@ -20,10 +18,8 @@ public class Card {
    * @param suit the suit of the card
    * @param rank the rank of the card
    */
-  public Card(Suit suit, Rank rank) {
-    CardConstructorValidator(suit, rank);
-    this.suit = suit;
-    this.rank = rank;
+  public Card {
+    cardConstructorValidator(suit, rank);
   }
 
   /**
@@ -31,7 +27,8 @@ public class Card {
    *
    * @return the suit of the card
    */
-  public Suit getSuit() {
+  @Override
+  public Suit suit() {
     return suit;
   }
 
@@ -40,7 +37,8 @@ public class Card {
    *
    * @return the rank of the card
    */
-  public Rank getRank() {
+  @Override
+  public Rank rank() {
     return rank;
   }
 
