@@ -64,8 +64,7 @@
         <version>0.0.8</version>
         <configuration>
           <!-- https://github.com/openjfx/javafx-maven-plugin -->
-          <!-- TODO: Add the main class of the application -->
-          <mainClass></mainClass>
+          <mainClass>edu.ntnu.idi.idatt.CardGame</mainClass>
         </configuration>
       </plugin>
     </plugins>
