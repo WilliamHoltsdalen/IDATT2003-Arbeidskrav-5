@@ -1,20 +1,17 @@
 package edu.ntnu.idi.idatt.controller;
 
-import edu.ntnu.idi.idatt.view.CardGameView;
+import edu.ntnu.idi.idatt.view.ControlPanelView;
 import javafx.application.Platform;
 
 public class CardGameController {
-  private final CardGameView view;
+  private final ControlPanelView view;
 
-  public CardGameController(CardGameView view) {
+  public CardGameController(ControlPanelView view) {
     this.view = view;
   }
 
-  public void handleButtonClick() {
-    if (view.getButtonLabel().getText().equals("Button clicked")) {
-      Platform.runLater((() -> view.getButtonLabel().setText("Button not clicked")));
-      return;
-    }
-    Platform.runLater((() -> view.getButtonLabel().setText("Button clicked")));
+  public void handleDealHandButtonClick() {
+    Platform.runLater(() -> view.getSumValueLabel().setText(
+        String.valueOf(Integer.parseInt(view.getSumValueLabel().getText()) + 1)));
   }
 }
