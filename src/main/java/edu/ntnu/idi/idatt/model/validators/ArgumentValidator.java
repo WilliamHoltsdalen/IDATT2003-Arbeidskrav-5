@@ -1,8 +1,8 @@
-package edu.ntnu.idi.idatt.validators;
+package edu.ntnu.idi.idatt.model.validators;
 
-import edu.ntnu.idi.idatt.Suit;
-import edu.ntnu.idi.idatt.Rank;
-import edu.ntnu.idi.idatt.Card;
+import edu.ntnu.idi.idatt.model.Suit;
+import edu.ntnu.idi.idatt.model.Rank;
+import edu.ntnu.idi.idatt.model.Card;
 import java.util.List;
 
 /**

@@ -1,6 +1,6 @@
-package edu.ntnu.idi.idatt;
+package edu.ntnu.idi.idatt.model;
 
-import static edu.ntnu.idi.idatt.validators.ArgumentValidator.dealHandValidator;
+import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.dealHandValidator;
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;

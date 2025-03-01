@@ -1,4 +1,4 @@
-package edu.ntnu.idi.idatt;
+package edu.ntnu.idi.idatt.model;
 
 /**
  * Represents a rank of playing cards. The ranks are ordered numerically.

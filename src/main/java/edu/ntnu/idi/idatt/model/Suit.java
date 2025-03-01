@@ -1,4 +1,4 @@
-package edu.ntnu.idi.idatt;
+package edu.ntnu.idi.idatt.model;
 
 /**
  * Represents a suit of playing cards. The suits are ordered alphabetically.

@@ -1,6 +1,6 @@
-package edu.ntnu.idi.idatt;
+package edu.ntnu.idi.idatt.model;
 
-import static edu.ntnu.idi.idatt.validators.ArgumentValidator.cardConstructorValidator;
+import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.cardConstructorValidator;
 
 /**
  * <h3>Represents a playing card.

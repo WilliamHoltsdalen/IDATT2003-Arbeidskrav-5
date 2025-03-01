@@ -1,6 +1,6 @@
-package edu.ntnu.idi.idatt;
+package edu.ntnu.idi.idatt.model;
 
-import static edu.ntnu.idi.idatt.validators.ArgumentValidator.handOfCardsConstructorValidator;
+import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.handOfCardsConstructorValidator;
 import java.util.List;
 
 /**
