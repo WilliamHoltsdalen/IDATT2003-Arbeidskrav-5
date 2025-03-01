@@ -1,35 +1,22 @@
 package edu.ntnu.idi.idatt.view;
-
-import edu.ntnu.idi.idatt.controller.CardGameController;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+
 import javafx.scene.layout.VBox;
 
-public class CardGameView {
-  private VBox root;
-  private Button button;
-  private Label buttonLabel;
-  private CardGameController controller;
+public class CardGameView extends VBox {
 
   public CardGameView() {
-    // UI components
-    button = new Button("Clickable button");
-    buttonLabel = new Label("Button not clicked");
+    setPadding(new Insets(65, 65, 65, 65));
+    setAlignment(Pos.CENTER);
 
-    controller = new CardGameController(this);
+    CardAreaView cardAreaView= new CardAreaView();
+    ControlPanelView controlPanelView = new ControlPanelView();
 
-    root = new VBox(15, buttonLabel, button);
-    root.setAlignment(Pos.CENTER);
-
-    button.setOnAction(e -> controller.handleButtonClick());
+    getChildren().addAll(cardAreaView, controlPanelView);
   }
 
   public VBox getView() {
-    return root;
-  }
-
-  public Label getButtonLabel() {
-    return buttonLabel;
+    return this;
   }
 }
