@@ -22,6 +22,7 @@ public class HandOfCards {
    */
   public HandOfCards(List<Card> cards) {
     handOfCardsConstructorValidator(cards);
+    initializeHand(cards);
   }
 
   /**
