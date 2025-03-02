@@ -11,10 +11,10 @@ import java.util.List;
 public class CardAreaView extends StackPane{
 
   public CardAreaView() {
-    setStyle("-fx-background-color: #8B4513; -fx-padding: 20; -fx-background-radius: 15;");
+    setStyle("-fx-background-color: #6A4515; -fx-padding: 20; -fx-background-radius: 15; -fx-box-shadow: black 0 0 10;");
 
     StackPane greenFeltPane = new StackPane();
-    greenFeltPane.setStyle("-fx-background-color: #006400; -fx-padding: 20; -fx-background-radius: 10;");
+    greenFeltPane.setStyle("-fx-background-color: #006400; -fx-padding: 35; -fx-background-radius: 10;");
 
     // Card display area
     HBox cardBox = new HBox(10);
@@ -30,7 +30,6 @@ public class CardAreaView extends StackPane{
     for (String cardName : cardNames) {
       ImageView cardImage = new ImageView(cardName);
       cardImage.setFitWidth(100);
-      cardImage.setFitHeight(100);
       cardImage.setPreserveRatio(true);
       cardBox.getChildren().add(cardImage);
     }
