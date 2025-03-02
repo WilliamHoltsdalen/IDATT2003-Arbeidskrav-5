@@ -20,7 +20,7 @@ public class CardGame extends Application {
     CardGameView cardGameView = new CardGameView();
 
     Scene scene = new Scene(cardGameView.getView(), 800, 600);
-    scene.getStylesheets().add("stylesheets/styles.css");
+    scene.getStylesheets().add("stylesheets/project.css");
     primaryStage.setTitle("Card Game");
     primaryStage.setScene(scene);
     primaryStage.show();

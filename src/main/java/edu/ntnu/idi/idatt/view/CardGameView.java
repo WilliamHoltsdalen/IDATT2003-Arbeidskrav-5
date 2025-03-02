@@ -1,35 +1,38 @@
 package edu.ntnu.idi.idatt.view;
-
 import edu.ntnu.idi.idatt.controller.CardGameController;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-public class CardGameView {
-  private VBox root;
-  private Button button;
-  private Label buttonLabel;
-  private CardGameController controller;
+public class CardGameView extends VBox {
+    private final CardAreaView cardAreaView;
+    private final ControlPanelView controlPanelView;
 
-  public CardGameView() {
-    // UI components
-    button = new Button("Clickable button");
-    buttonLabel = new Label("Button not clicked");
+    public CardGameView() {
+        CardGameController controller = new CardGameController();
 
-    controller = new CardGameController(this);
+        this.getStyleClass().add("main-background");
 
-    root = new VBox(15, buttonLabel, button);
-    root.setAlignment(Pos.CENTER);
+        setPadding(new Insets(65, 65, 65, 65));
+        setAlignment(Pos.CENTER);
 
-    button.setOnAction(e -> controller.handleButtonClick());
-  }
+        cardAreaView = new CardAreaView();
+        controlPanelView = new ControlPanelView(controller);
+        VBox.setMargin(controlPanelView, new Insets(70, 0, 0, 0));
 
-  public VBox getView() {
-    return root;
-  }
+        controller.initViews(this);
+        getChildren().addAll(cardAreaView, controlPanelView);
+    }
 
-  public Label getButtonLabel() {
-    return buttonLabel;
-  }
+    public VBox getView() {
+        return this;
+    }
+
+    public ControlPanelView getControlPanelView() {
+        return controlPanelView;
+    }
+
+    public CardAreaView getCardAreaView() {
+        return cardAreaView;
+    }
 }
