@@ -23,26 +23,6 @@ public record Card(Suit suit, Rank rank) {
   }
 
   /**
-   * Returns the suit of the card.
-   *
-   * @return the suit of the card
-   */
-  @Override
-  public Suit suit() {
-    return suit;
-  }
-
-  /**
-   * Returns the rank of the card.
-   *
-   * @return the rank of the card
-   */
-  @Override
-  public Rank rank() {
-    return rank;
-  }
-
-  /**
    * Returns a string representation of the card in the format "rank of suit".
    *
    * @return a string representation of the card
