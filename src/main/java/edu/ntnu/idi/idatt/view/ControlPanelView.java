@@ -15,10 +15,8 @@ public class ControlPanelView extends HBox {
   private final Label queenValueLabel;
   private final Label flushValueLabel;
 
-  private final CardGameController controller;
+  public ControlPanelView(CardGameController controller) {
 
-  public ControlPanelView() {
-    controller = new CardGameController(this);
     this.setMaxWidth(USE_PREF_SIZE);
     this.setPrefWidth(USE_COMPUTED_SIZE);
     this.setMinWidth(USE_PREF_SIZE);
@@ -47,10 +45,11 @@ public class ControlPanelView extends HBox {
     queenValueLabel = new Label("❌");
     flushValueLabel = new Label("❌");
 
-    sumTextLabel.getStyleClass().add("text-label");
-    heartsTextLabel.getStyleClass().add("text-label");
-    queenTextLabel.getStyleClass().add("text-label");
-    flushTextLabel.getStyleClass().add("text-label");
+    String textClass = "text-label";
+    sumTextLabel.getStyleClass().add(textClass);
+    heartsTextLabel.getStyleClass().add(textClass);
+    queenTextLabel.getStyleClass().add(textClass);
+    flushTextLabel.getStyleClass().add(textClass);
 
     sumValueLabel.getStyleClass().add("valueLabel");
     heartsValueLabel.getStyleClass().add("valueLabel");
@@ -77,6 +76,7 @@ public class ControlPanelView extends HBox {
 
 
     dealHandButton.setOnAction(e -> controller.handleDealHandButtonClick());
+    checkHandButton.setOnAction(e -> controller.handleCheckHandButtonClick());
 
     getChildren().addAll(buttonBox, statsPane);
   }
