@@ -25,35 +25,37 @@ public class ControlPanelView extends HBox {
     this.setSpacing(30);
     this.setAlignment(Pos.CENTER);
     this.setPadding(new Insets(10, 30, 10, 30));
-    this.setStyle("-fx-background-color: #6A4515; -fx-background-radius: 12; -fx-box-shadow: black 0 0 10;");
+    this.getStyleClass().add("control-panel");
 
 
     Button dealHandButton = new Button("Deal hand");
-    dealHandButton.setStyle("-fx-background-color: #00C4D2; -fx-text-fill: black; -fx-font-size: 16; -fx-font-weight: 700;");
+    dealHandButton.getStyleClass().add("deal-hand-button");
     dealHandButton.setPrefWidth(135);
     Button checkHandButton = new Button("Check hand");
-    checkHandButton.setStyle("-fx-background-color: rgba(246, 255, 0, 0.77); -fx-text-fill: black; -fx-font-size: 16; -fx-font-weight: 700;");
+    checkHandButton.getStyleClass().add("check-hand-button");
     checkHandButton.setPrefWidth(135);
 
 
     Label sumTextLabel = new Label("Σ Sum of the faces");
     Label heartsTextLabel = new Label("♥ Cards of hearts");
     Label queenTextLabel = new Label("♠ Queen of spades");
-    Label flushTextLabel = new Label("♦ Flush");
-    sumTextLabel.setStyle("-fx-font-size: 14; -fx-text-fill: white;");
-    heartsTextLabel.setStyle("-fx-font-size: 14; -fx-text-fill: white;");
-    queenTextLabel.setStyle("-fx-font-size: 14; -fx-text-fill: white;");
-    flushTextLabel.setStyle("-fx-font-size: 14; -fx-text-fill: white;");
+    Label flushTextLabel = new Label("🏆 Flush");
 
 
     sumValueLabel = new Label("0");
-    heartsValueLabel = new Label("H11 H12");
-    queenValueLabel = new Label("X");
-    flushValueLabel = new Label("X");
-    sumValueLabel.setStyle("-fx-font-size: 16; -fx-font-weight: bold; -fx-text-fill: white;");
-    heartsValueLabel.setStyle("-fx-font-size: 14; -fx-text-fill: green;");
-    queenValueLabel.setStyle("-fx-font-size: 14; -fx-text-fill: red;");
-    flushValueLabel.setStyle("-fx-font-size: 14; -fx-text-fill: red;");
+    heartsValueLabel = new Label("❌");
+    queenValueLabel = new Label("❌");
+    flushValueLabel = new Label("❌");
+
+    sumTextLabel.getStyleClass().add("text-label");
+    heartsTextLabel.getStyleClass().add("text-label");
+    queenTextLabel.getStyleClass().add("text-label");
+    flushTextLabel.getStyleClass().add("text-label");
+
+    sumValueLabel.getStyleClass().add("valueLabel");
+    heartsValueLabel.getStyleClass().add("valueLabel");
+    queenValueLabel.getStyleClass().add("queenValueLabel");
+    flushValueLabel.getStyleClass().add("flushValueLabel");
 
 
     GridPane statsPane = new GridPane();

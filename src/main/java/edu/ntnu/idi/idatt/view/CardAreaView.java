@@ -11,10 +11,10 @@ import java.util.List;
 public class CardAreaView extends StackPane{
 
   public CardAreaView() {
-    setStyle("-fx-background-color: #6A4515; -fx-padding: 20; -fx-background-radius: 15; -fx-box-shadow: black 0 0 10;");
+    this.getStyleClass().add("card-area-table");
 
     StackPane greenFeltPane = new StackPane();
-    greenFeltPane.setStyle("-fx-background-color: #006400; -fx-padding: 35; -fx-background-radius: 10;");
+    greenFeltPane.getStyleClass().add("card-area-table-felt");
 
     // Card display area
     HBox cardBox = new HBox(10);

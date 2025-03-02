@@ -5,11 +5,10 @@ import javafx.scene.layout.VBox;
 
 public class CardGameView extends VBox {
 
-  public CardGameView() {
-    setStyle("-fx-background-color: radial-gradient(focus-distance 0% , center 50% 50% , radius 50% , rgb(22,81,93) 30%, rgb(0,52,63) 100%);");
+    public CardGameView() {
+        CardGameController controller = new CardGameController();
 
-    setPadding(new Insets(65, 65, 65, 65));
-    setAlignment(Pos.CENTER);
+        this.getStyleClass().add("main-background");
 
     CardAreaView cardAreaView= new CardAreaView();
     ControlPanelView controlPanelView = new ControlPanelView();
