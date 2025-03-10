@@ -21,9 +21,9 @@ The **GUI** displays the cards and includes buttons for drawing a hand and check
 ```
 src/
  ├── main/
+ │   ├── java/
  │   │   ├── edu.ntnu.idi.idatt/
  │   │   │   ├── controller/    # Handles GUI interactivity and provides functionality.
- │   ├── java/
  │   │   │   ├── model/         # Data models/entities
  │   │   │   │   └── validators # Validator utilities for models
  │   │   │   ├── view/          # JavaFX views for the GUI
