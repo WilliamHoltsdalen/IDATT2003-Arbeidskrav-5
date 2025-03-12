@@ -10,7 +10,7 @@
 }
 
 .card-area-table-felt {
-  -fx-background-color: #006400;
+  -fx-background-image: url("/images/poker_table.png");
   -fx-padding: 35;
   -fx-background-radius: 10;
 }
