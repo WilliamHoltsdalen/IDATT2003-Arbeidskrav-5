@@ -33,7 +33,7 @@ public class DeckOfCards {
    *
    * @return a list of the cards in the deck
    */
-  public List<Card> getCards() {
+  public List<Card> getCards()   {
     return cards;
   }
 
@@ -70,7 +70,7 @@ public class DeckOfCards {
    * @return a HandOfCards object containing the dealt cards
    */
   public HandOfCards dealHand(int n) {
-    dealHandValidator(n);
+    dealHandValidator(n, cards.size());
 
     List<Card> handCards = new ArrayList<>();
     for (int i = 0; i < n; i++) {
