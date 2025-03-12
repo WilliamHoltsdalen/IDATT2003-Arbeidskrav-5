@@ -1,6 +1,7 @@
 package edu.ntnu.idi.idatt.model;
 
 import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.handOfCardsConstructorValidator;
+
 import java.util.List;
 
 /**
@@ -50,13 +51,6 @@ public class HandOfCards {
    * @return true if the hand has a flush, false otherwise
    */
   public boolean checkFlush() {
-    Suit firstSuit = this.cards.getFirst().suit();
-    for (Card card : cards) {
-      Suit cardSuit = card.suit();
-      if (cardSuit != firstSuit) {
-        return false;
-      }
-    }
-    return true;
+    return this.cards.stream().map(Card::suit).distinct().count() == 1;
   }
 }

@@ -11,10 +11,21 @@ import javafx.stage.Stage;
  */
 public class CardGame extends Application {
 
+  /**
+   * Launches the application.
+   *
+   * @param args the command line arguments
+   */
   public static void main(String[] args) {
     launch(args);
   }
 
+  /**
+   * Starts the JavaFX GUI.
+   *
+   * @param primaryStage the primary stage
+   * @throws Exception if an error occurs
+   */
   @Override
   public void start(Stage primaryStage) throws Exception {
     CardGameView cardGameView = new CardGameView();
