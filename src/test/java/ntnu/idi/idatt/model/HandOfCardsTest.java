@@ -12,10 +12,22 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <h3>Test class for the HandOfCards class.</h3>
+ *
+ * @author William Holtsdalen
+ */
 public class HandOfCardsTest {
 
+  /**
+   * Test class for the positive tests in the HandOfCardsTest class.
+   */
   @Nested
   class PositiveTests {
+
+    /**
+     * Test creating a hand of cards with a valid list of cards.
+     */
     @DisplayName("Test creating a hand of cards with a valid list of cards")
     @Test
     void testCreateHandOfCardsWithValidListOfCards() {
@@ -31,6 +43,9 @@ public class HandOfCardsTest {
       assertEquals(cards, hand.getCards());
     }
 
+    /**
+     * Test checking a hand for a flush.
+     */
     @DisplayName("Test checking a hand for a flush")
     @Test
     void testCheckFlush() {
@@ -47,14 +62,24 @@ public class HandOfCardsTest {
     }
   }
 
+  /**
+   * Test class for the negative tests in the HandOfCardsTest class.
+   */
   @Nested
   class NegativeTests {
+
+    /**
+     * Test that creating a hand of cards with a null list of cards throws an exception.
+     */
     @DisplayName("Test that creating a hand of cards with a null list of cards throws an exception")
     @Test
     void testCreateHandOfCardsWithNullListOfCardsThrowsException() {
       assertThrows(IllegalArgumentException.class, () -> new HandOfCards(null));
     }
 
+    /**
+     * Test that creating a hand of cards with an empty list of cards throws an exception.
+     */
     @DisplayName("Test that creating a hand of cards with an empty list of cards throws an exception")
     @Test
     void testCreateHandOfCardsWithEmptyListOfCardsThrowsException() {

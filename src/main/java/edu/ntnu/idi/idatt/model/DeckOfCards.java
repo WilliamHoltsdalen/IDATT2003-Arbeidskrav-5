@@ -1,10 +1,10 @@
 package edu.ntnu.idi.idatt.model;
 
 import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.dealHandValidator;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * Represents a deck of playing cards. The deck has 52 cards of the Card record. There are methods
@@ -15,14 +15,12 @@ import java.util.Random;
  */
 public class DeckOfCards {
   private final List<Card> cards;
-  private final Random random;
 
   /**
    * Creates a new deck of cards, and shuffles it.
    */
   public DeckOfCards() {
     cards = new ArrayList<>();
-    random = new Random();
 
     initializeDeck();
     shuffleDeck();
@@ -39,8 +37,8 @@ public class DeckOfCards {
 
   /**
    * Creates 52 unique cards and adds them to the deck.
-   * <p>
-   * The cards are created by iterating over the Suit and Rank enums.
+   *
+   * <p>The cards are created by iterating over the Suit and Rank enums.
    *
    * @see Suit
    * @see Rank
@@ -72,10 +70,8 @@ public class DeckOfCards {
   public HandOfCards dealHand(int n) {
     dealHandValidator(n, cards.size());
 
-    List<Card> handCards = new ArrayList<>();
-    for (int i = 0; i < n; i++) {
-      handCards.add(this.cards.get(random.nextInt(this.cards.size())));
-    }
+    shuffleDeck();
+    List<Card> handCards = new ArrayList<>(cards.stream().limit(5).toList());
     return new HandOfCards(handCards);
   }
 }

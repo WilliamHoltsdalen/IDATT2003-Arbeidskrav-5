@@ -3,10 +3,9 @@ package edu.ntnu.idi.idatt.model;
 import static edu.ntnu.idi.idatt.model.validators.ArgumentValidator.cardConstructorValidator;
 
 /**
- * <h3>Represents a playing card.
+ * <h3>Represents a playing card.</h3>
  *
- * <p>
- * The card is represented by a suit and a rank.
+ * <p>The card is represented by a suit and a rank.
  *
  * @author William Holtsdalen
  */

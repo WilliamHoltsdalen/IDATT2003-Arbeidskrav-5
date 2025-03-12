@@ -1,18 +1,21 @@
 package edu.ntnu.idi.idatt.controller;
 
 import edu.ntnu.idi.idatt.model.Card;
+import edu.ntnu.idi.idatt.model.DeckOfCards;
+import edu.ntnu.idi.idatt.model.HandOfCards;
 import edu.ntnu.idi.idatt.model.Rank;
 import edu.ntnu.idi.idatt.model.Suit;
 import edu.ntnu.idi.idatt.view.CardAreaView;
 import edu.ntnu.idi.idatt.view.CardGameView;
-import java.util.stream.Collectors;
-
-import edu.ntnu.idi.idatt.model.DeckOfCards;
-import edu.ntnu.idi.idatt.model.HandOfCards;
 import edu.ntnu.idi.idatt.view.ControlPanelView;
-import javafx.application.Platform;
+import java.util.stream.Collectors;
 import javafx.scene.image.Image;
 
+/**
+ * <h3>Controller for the card game.</h3>
+ *
+ * @author William Holtsdalen
+ */
 public class CardGameController {
   private CardAreaView cardAreaView;
   private ControlPanelView controlPanelView;
@@ -20,20 +23,34 @@ public class CardGameController {
   private DeckOfCards deck;
   private HandOfCards hand;
 
+  /**
+   * Constructs a new card game controller.
+   */
   public CardGameController() {
     initDeckOfCards();
   }
 
+  /**
+   * Initializes the views in the card game view.
+   *
+   * @param cardGameView the card game view
+   */
   public void initViews(CardGameView cardGameView) {
     this.controlPanelView = cardGameView.getControlPanelView();
     this.cardAreaView = cardGameView.getCardAreaView();
   }
 
+  /**
+   * Handles the click event for the deal hand button.
+   */
   public void handleDealHandButtonClick() {
     this.hand = deck.dealHand(5);
     updateCards();
   }
 
+  /**
+   * Handles the click event for the check hand button.
+   */
   public void handleCheckHandButtonClick() {
     updateSumValueLabel();
     updateHeartsValueLabel();
@@ -41,21 +58,28 @@ public class CardGameController {
     updateFlushValueLabel();
   }
 
+  /**
+   * Initializes the deck of cards.
+   */
   private void initDeckOfCards() {
     this.deck = new DeckOfCards();
   }
 
+  /**
+   * Updates the cards in the card area view.
+   */
   private void updateCards() {
     for (int i = 0; i < hand.getCards().size(); i++) {
       Card card = hand.getCards().get(i);
-      int finalI = i;
-      Platform.runLater(() -> cardAreaView.getCardImages().get(finalI).setImage(new Image(String.format(
+      cardAreaView.getCardImages().get(i).setImage(new Image(String.format(
               "images/%d_of_%s.png", card.rank().getValue(), card.suit().toString()
-          )))
-      );
+          )));
     }
   }
 
+  /**
+   * Updates the sum value label in the control panel view.
+   */
   private void updateSumValueLabel() {
     int sum = 0;
     for (Card card : hand.getCards()) {
@@ -63,9 +87,12 @@ public class CardGameController {
     }
 
     final int finalSum = sum;
-    Platform.runLater(() -> controlPanelView.getSumValueLabel().setText(String.valueOf(finalSum)));
+    controlPanelView.getSumValueLabel().setText(String.valueOf(finalSum));
   }
 
+  /**
+   * Updates the hearts value label in the control panel view.
+   */
   private void updateHeartsValueLabel() {
     String handString = hand.getCards().stream()
         .filter(card -> card.suit().equals(Suit.HEARTS))
@@ -73,27 +100,33 @@ public class CardGameController {
         .collect(Collectors.joining(" "));
 
     if (handString.isEmpty()) {
-      Platform.runLater(() -> controlPanelView.getHeartsValueLabel().setText("❌"));
+      controlPanelView.getHeartsValueLabel().setText("❌");
       return;
     }
-    Platform.runLater(() -> controlPanelView.getHeartsValueLabel().setText(handString));
+    controlPanelView.getHeartsValueLabel().setText(handString);
   }
 
+  /**
+   * Updates the queen value label in the control panel view.
+   */
   private void updateQueenValueLabel() {
     for (Card card : hand.getCards()) {
       if (card.rank().equals(Rank.QUEEN) && card.suit().equals(Suit.SPADES)) {
-        Platform.runLater(() -> controlPanelView.getQueenValueLabel().setText("✅"));
+        controlPanelView.getQueenValueLabel().setText("✅");
         return;
       }
-      Platform.runLater(() -> controlPanelView.getQueenValueLabel().setText("❌"));
+      controlPanelView.getQueenValueLabel().setText("❌");
     }
   }
 
+  /**
+   * Updates the flush value label in the control panel view.
+   */
   private void updateFlushValueLabel() {
     if (hand.checkFlush()) {
-      Platform.runLater(() -> controlPanelView.getFlushValueLabel().setText("✅"));
+      controlPanelView.getFlushValueLabel().setText("✅");
     } else {
-      Platform.runLater(() -> controlPanelView.getFlushValueLabel().setText("❌"));
+      controlPanelView.getFlushValueLabel().setText("❌");
     }
   }
 

@@ -9,10 +9,22 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+/**
+ * <h3>Test class for the Card class.</h3>
+ *
+ * @author William Holtsdalen
+ */
 public class CardTest {
 
+  /**
+   * Test class for the positive tests in the CardTest class.
+   */
   @Nested
   class PositiveTests {
+
+    /**
+     * Test creating a card with a valid suit and rank.
+     */
     @DisplayName("Test creating a card with a valid suit and rank")
     @Test
     void testCreateCardWithValidSuitAndRank() {
@@ -22,20 +34,33 @@ public class CardTest {
     }
   }
 
+  /**
+   * Test class for the negative tests in the CardTest class.
+   */
   @Nested
   class NegativeTests {
+
+    /**
+     * Test creating a card object with a null suit.
+     */
     @DisplayName("Test creating a card object with a null suit")
     @Test
     void testCreateCardWithInvalidSuit() {
       assertThrows(IllegalArgumentException.class, () -> new Card(null, Rank.ACE));
     }
 
+    /**
+     * Test creating a card object with a null rank.
+     */
     @DisplayName("Test creating a card object with a null rank")
     @Test
     void testCreateCardWithInvalidRank() {
       assertThrows(IllegalArgumentException.class, () -> new Card(Suit.CLUBS, null));
     }
 
+    /**
+     * Test creating a card object with a null suit and rank.
+     */
     @DisplayName("Test creating a card object with a null suit and rank")
     @Test
     void testCreateCardWithNullSuitAndRank() {
