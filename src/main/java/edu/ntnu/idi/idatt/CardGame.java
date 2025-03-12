@@ -24,10 +24,9 @@ public class CardGame extends Application {
    * Starts the JavaFX GUI.
    *
    * @param primaryStage the primary stage
-   * @throws Exception if an error occurs
    */
   @Override
-  public void start(Stage primaryStage) throws Exception {
+  public void start(Stage primaryStage) {
     CardGameView cardGameView = new CardGameView();
 
     Scene scene = new Scene(cardGameView.getView(), 800, 600);
