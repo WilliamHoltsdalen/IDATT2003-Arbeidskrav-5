@@ -1,17 +1,23 @@
 package edu.ntnu.idi.idatt.view;
 
+import java.util.List;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 
-import java.util.List;
-
+/**
+ * <h3>View for the card area.</h3>
+ *
+ * @author William Holtsdalen
+ */
 public class CardAreaView extends StackPane {
-
   private final List<ImageView> cardImages;
 
+  /**
+   * Constructs a new card area view.
+   */
   public CardAreaView() {
     this.getStyleClass().add("card-area-table");
 
@@ -34,6 +40,7 @@ public class CardAreaView extends StackPane {
     for (ImageView cardImage : cardImages) {
       cardImage.setFitWidth(100);
       cardImage.setPreserveRatio(true);
+      cardImage.getStyleClass().add("card-image");
       cardBox.getChildren().add(cardImage);
     }
 

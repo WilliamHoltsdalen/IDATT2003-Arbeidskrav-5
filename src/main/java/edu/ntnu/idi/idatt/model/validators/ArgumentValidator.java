@@ -1,12 +1,12 @@
 package edu.ntnu.idi.idatt.model.validators;
 
-import edu.ntnu.idi.idatt.model.Suit;
-import edu.ntnu.idi.idatt.model.Rank;
 import edu.ntnu.idi.idatt.model.Card;
+import edu.ntnu.idi.idatt.model.Rank;
+import edu.ntnu.idi.idatt.model.Suit;
 import java.util.List;
 
 /**
- * <h3>A utility class for validating arguments passed to methods.
+ * <h3>A utility class for validating arguments passed to methods.</h3>
  *
  * @author William Holtsdalen
  */
@@ -40,9 +40,13 @@ public class ArgumentValidator {
    * @param n the number of cards to deal
    * @throws IllegalArgumentException if the number of cards to deal is less than 1
    */
-  public static void dealHandValidator(int n) {
+  public static void dealHandValidator(int n, int deckSize) {
     if (n < 1) {
       throw new IllegalArgumentException("Number of cards to deal must be greater than 0");
+    }
+    if (n > deckSize) {
+      throw new IllegalArgumentException("Number of cards to deal must be less than or equal to "
+          + "the number of cards in the deck");
     }
   }
 

@@ -9,12 +9,23 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+/**
+ * <h3>View for the control panel.</h3>
+ *
+ * @author William Holtsdalen
+ */
 public class ControlPanelView extends HBox {
+  private static final String DEFAULT_TEXT_CLASS = "text-label";
   private final Label sumValueLabel;
   private final Label heartsValueLabel;
   private final Label queenValueLabel;
   private final Label flushValueLabel;
 
+  /**
+   * Constructs a new control panel view.
+   *
+   * @param controller the card game controller
+   */
   public ControlPanelView(CardGameController controller) {
 
     this.setMaxWidth(USE_PREF_SIZE);
@@ -25,37 +36,37 @@ public class ControlPanelView extends HBox {
     this.setPadding(new Insets(10, 30, 10, 30));
     this.getStyleClass().add("control-panel");
 
-
     Button dealHandButton = new Button("Deal hand");
     dealHandButton.getStyleClass().add("deal-hand-button");
     dealHandButton.setPrefWidth(135);
+
     Button checkHandButton = new Button("Check hand");
     checkHandButton.getStyleClass().add("check-hand-button");
     checkHandButton.setPrefWidth(135);
 
-
     Label sumTextLabel = new Label("Σ Sum of the faces");
-    Label heartsTextLabel = new Label("♥ Cards of hearts");
-    Label queenTextLabel = new Label("♠ Queen of spades");
-    Label flushTextLabel = new Label("🏆 Flush");
+    sumTextLabel.getStyleClass().add(DEFAULT_TEXT_CLASS);
 
+    Label heartsTextLabel = new Label("♥ Cards of hearts");
+    heartsTextLabel.getStyleClass().add(DEFAULT_TEXT_CLASS);
+
+    Label queenTextLabel = new Label("♠ Queen of spades");
+    queenTextLabel.getStyleClass().add(DEFAULT_TEXT_CLASS);
+
+    Label flushTextLabel = new Label("🏆 Flush");
+    flushTextLabel.getStyleClass().add(DEFAULT_TEXT_CLASS);
 
     sumValueLabel = new Label("0");
-    heartsValueLabel = new Label("❌");
-    queenValueLabel = new Label("❌");
-    flushValueLabel = new Label("❌");
-
-    String textClass = "text-label";
-    sumTextLabel.getStyleClass().add(textClass);
-    heartsTextLabel.getStyleClass().add(textClass);
-    queenTextLabel.getStyleClass().add(textClass);
-    flushTextLabel.getStyleClass().add(textClass);
-
     sumValueLabel.getStyleClass().add("valueLabel");
-    heartsValueLabel.getStyleClass().add("valueLabel");
-    queenValueLabel.getStyleClass().add("queenValueLabel");
-    flushValueLabel.getStyleClass().add("flushValueLabel");
 
+    heartsValueLabel = new Label("❌");
+    heartsValueLabel.getStyleClass().add("valueLabel");
+
+    queenValueLabel = new Label("❌");
+    queenValueLabel.getStyleClass().add("queenValueLabel");
+
+    flushValueLabel = new Label("❌");
+    flushValueLabel.getStyleClass().add("flushValueLabel");
 
     GridPane statsPane = new GridPane();
     statsPane.setHgap(18);
@@ -69,11 +80,9 @@ public class ControlPanelView extends HBox {
     statsPane.add(flushTextLabel, 0, 3);
     statsPane.add(flushValueLabel, 1, 3);
 
-
     VBox buttonBox = new VBox(30);
     buttonBox.setAlignment(Pos.CENTER);
     buttonBox.getChildren().addAll(dealHandButton, checkHandButton);
-
 
     dealHandButton.setOnAction(e -> controller.handleDealHandButtonClick());
     checkHandButton.setOnAction(e -> controller.handleCheckHandButtonClick());
