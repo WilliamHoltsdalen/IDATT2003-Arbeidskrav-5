@@ -39,7 +39,7 @@ public class HandOfCards {
    *
    * @param cards the list of cards to initialize the hand with
    */
-  public void initializeHand(List<Card> cards) {
+  private void initializeHand(List<Card> cards) {
     this.cards = new java.util.ArrayList<>();
     this.cards.addAll(cards);
   }
