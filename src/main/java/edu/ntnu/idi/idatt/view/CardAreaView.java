@@ -34,6 +34,7 @@ public class CardAreaView extends StackPane {
     for (ImageView cardImage : cardImages) {
       cardImage.setFitWidth(100);
       cardImage.setPreserveRatio(true);
+      cardImage.getStyleClass().add("card-image");
       cardBox.getChildren().add(cardImage);
     }
 
